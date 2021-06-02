@@ -1,18 +1,17 @@
-import pygame
+import pygame 
 
-pygame.init()
+pygame.init() 
 
 
-WHITE = (255,255,255)
-size = [1600,900]
-screen = pygame.display.set_mod(size)
+WHITE = (153,255,255)
+size = (1600,900)
+screen = pygame.display.set_mode(size)
 
-done= False
-clock=pygame.time.Clock()
-
+done = False
+clock = pygame.time.Clock()
 
 airplane = pygame.image.load('images/plane.png')
-airplane = pygame.transform.scale(airplane, (60, 45))
+airplane = pygame.transform.scale(airplane, (80, 60))
 
 
 def runGame():
@@ -26,19 +25,15 @@ def runGame():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                done=TRUE
-
-
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.k_UP:
-                y -= 10
-            elif event.key == pygame.k_down:
-                y += 10
+                done=True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    y -= 100
+                elif event.key == pygame.K_DOWN:
+                    y += 100
 
         screen.blit(airplane, (x, y))
         pygame.display.update()
 
 runGame()
 pygame.quit()
-
-    
